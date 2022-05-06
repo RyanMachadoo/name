@@ -5,13 +5,12 @@ app.config['SECRET_KEY'] = 'HAglkjlttjglfA'
 
 @app.route('/')
 def index():
-  return redirect('/flashing')
+  return redirect('/hello/joao')
 
-@app.route('/flashing')
-def flashing():
-  name = 'João'
+@app.route('/hello/<name>')
+def hello(name):
   flash(f'Bem-vindo, {name}!', 'success')
-  return render_template('flashing.html')
+  return render_template('hello.html')
 
 
 if __name__ == '__main__':
